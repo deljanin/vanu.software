@@ -3,7 +3,7 @@ export default function Home() {
     <div className="w-full h-screen flex flex-col items-center justify-center gap-4">
       <h1 className="font-ron text-5xl">Welcome to Vanu Software</h1>
       <h2 className="text-xl">
-        This website is under development as I don't have the time for it,
+        This website is under development as I don&apos;t have the time for it,
         because of other projects.
       </h2>
       <h2 className="text-xl">
