@@ -3,6 +3,7 @@ import Link from 'next/link';
 import localFont from 'next/font/local';
 import './globals.css';
 import Image from 'next/image';
+import { ReactLenis, useLenis } from 'lenis/react';
 const ron = localFont({
   src: './fonts/RON.woff',
   variable: '--font-ron',
@@ -72,9 +73,10 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${ron.variable} ${suse.variable} antialiased font-suse`}>
-        <SideMenu />
-
-        {children}
+        <ReactLenis root>
+          {/* <SideMenu /> */}
+          {children}
+        </ReactLenis>
       </body>
     </html>
   );
