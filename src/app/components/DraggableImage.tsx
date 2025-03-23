@@ -1,20 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 export default function DraggableImage({
   imageUrl,
+  alt,
   width,
   height,
-  className,
 }: {
-  imageUrl: string;
+  imageUrl: StaticImageData;
+  alt: string;
   width: number;
   height: number;
-  className?: string;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const startY = useRef(0);
   const scrollY = useRef(0);
+
+  const scrollBarStyles: React.CSSProperties = {
+    scrollbarWidth: "thin", // Firefox
+    scrollbarColor: "#CC00CC #151515", // Firefox
+    WebkitOverflowScrolling: "touch",
+  };
 
   const handleMouseDown = (event: React.MouseEvent | React.TouchEvent) => {
     setIsDragging(true);
@@ -55,7 +61,8 @@ export default function DraggableImage({
   return (
     <div
       ref={containerRef}
-      className={`cursor-grab select-none overflow-hidden overscroll-contain active:cursor-grabbing ${className}`}
+      style={{ ...scrollBarStyles }}
+      className={`max-h-[700px] max-w-[500px] cursor-grab select-none overflow-x-hidden overscroll-contain rounded-md active:cursor-grabbing`}
       onMouseDown={handleMouseDown}
       onTouchStart={handleMouseDown}
     >
@@ -64,7 +71,9 @@ export default function DraggableImage({
         width={width}
         height={height}
         quality={100}
-        alt="Draggable Image"
+        alt={alt}
+        priority
+        placeholder="blur"
         className="pointer-events-none w-full select-none"
       />
     </div>

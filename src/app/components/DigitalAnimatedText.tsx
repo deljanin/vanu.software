@@ -1,5 +1,17 @@
 import * as motion from "motion/react-client";
 export default function DigitalAnimatedText({ text }: { text: string }) {
+  // const animations = [
+  //   { delay: 1.0 },
+  //   { delay: 0.4 },
+  //   { delay: 1.2 },
+  //   { delay: 0.6 },
+  //   { delay: 0.3 },
+  //   { delay: 0.7 },
+  //   { delay: 0.9 },
+  //   { delay: 0.5 },
+  //   { delay: 1.1 },
+  //   { delay: 0.8 },
+  // ];
   const animations = [
     { delay: 1.0 },
     { delay: 0.4 },
@@ -11,13 +23,24 @@ export default function DigitalAnimatedText({ text }: { text: string }) {
     { delay: 0.5 },
     { delay: 1.1 },
     { delay: 0.8 },
+    { delay: 1.3 },
+    { delay: 0.2 },
+    { delay: 0.1 },
+    { delay: 0.15 },
+    { delay: 0.25 },
+    { delay: 1.05 },
+    { delay: 0.35 },
+    { delay: 1.25 },
+    { delay: 1.2 },
+    { delay: 0.75 },
+    { delay: 1.1 },
   ];
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center font-mono text-white">
-      <p className="font-median w-1/2 break-words text-center text-5xl leading-snug">
+    <div className="relative flex min-h-[80vh] flex-col items-center px-5 pt-44">
+      <p className="break-words text-center text-4xl font-light leading-snug text-white md:w-1/2">
         {text.split(" ").map((word, wordIndex) => (
-          <span key={wordIndex} className="inline-block whitespace-nowrap px-3">
+          <span key={wordIndex} className="inline-block whitespace-nowrap px-2">
             {word.split("").map((char, charIndex) => {
               const i = wordIndex * 100 + charIndex; // Unique index for animation
               const animation = animations[i % animations.length];

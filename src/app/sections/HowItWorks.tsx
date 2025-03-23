@@ -1,0 +1,77 @@
+interface PhaseProps {
+  number: string;
+  heading: string;
+  text: string;
+}
+const phases = [
+  {
+    heading: "Initial Discussion",
+    text: "We start with a conversation to understand your needs, goals, and expectations. Based on this, we provide a detailed proposal outlining the project scope, timeline, and deliverables. Payment details and terms will be clearly communicated during this phase to ensure transparency and alignment.",
+  },
+  {
+    heading: "Design",
+    text: "Our team creates thoughtful UI/UX designs tailored to your brand and audience. We ensure the visual and functional aspects align with your vision, and you’ll have the opportunity to review and provide feedback at every step.",
+  },
+  {
+    heading: "Development",
+    text: "With the approved design, we start building your website. Our focus is on implementing features, ensuring seamless functionality, and creating a responsive experience that works beautifully across all devices.",
+  },
+  {
+    heading: "Final Review",
+    text: "We present the near-final product for your review. Your feedback is invaluable at this stage, as we refine and polish every detail to ensure the project meets your expectations and is ready for launch.",
+  },
+  {
+    heading: "Deployment",
+    text: "Your project goes live! We handle the deployment process with care and provide ongoing support to ensure everything runs smoothly. Our partnership continues as we help you grow and adapt in the digital space.",
+  },
+];
+
+export default function HowItWorks() {
+  return (
+    <div className="py-20">
+      <h2 className="font-tilla pb-10 text-center text-7xl">How it works</h2>
+      <div className="relative flex min-h-[350vh] w-full px-5 py-20 md:px-32 xl:px-64 2xl:px-80">
+        <div className="relative my-24 flex w-1/5 flex-col justify-between">
+          <div className="absolute left-[calc(1rem-2px)] top-0 h-full w-[3px] rounded-full bg-[#252525] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_3%,#000_97%,transparent_100%)]" />
+          {/* <div className="absolute left-[calc(1rem-2px)] top-0 h-full w-[3px] rounded-full bg-[linear-gradient(to_bottom,#BDDFFFCC,#CC00CCCC,#BDDFFFCC,#CC00CCCC,#BDDFFFCC,#CC00CCCC,#BDDFFFCC,#CC00CCCC,#BDDFFFCC)]" /> */}
+          <div className="absolute left-[calc(1rem-8px)] top-0 flex h-full flex-col items-center justify-between">
+            <div className="size-4 rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)]"></div>
+            <div className="size-4 rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)]"></div>
+            <div className="size-4 rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)]"></div>
+            <div className="size-4 rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)]"></div>
+            <div className="size-4 rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)]"></div>
+          </div>
+          <div className="sticky top-1/2 size-8 rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)]">
+            <div className="absolute h-full w-full rounded-full bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] blur-[10px]"></div>
+          </div>
+        </div>
+        <div className="relative flex w-4/5 flex-col justify-between">
+          {phases.map((step, index) => (
+            <Phase
+              key={index}
+              number={"0" + index}
+              heading={step.heading}
+              text={step.text}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Phase({ number, heading, text }: PhaseProps) {
+  return (
+    <div className="flex items-start justify-center gap-5">
+      <span className="font-tilla bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text text-9xl leading-[1.2] text-transparent">
+        {number}
+      </span>
+      <div className="">
+        <h3 className="font-tilla mb-5 pt-1.5 text-5xl leading-snug">
+          {heading}
+        </h3>
+        <p className="w-5/6 text-xl">{text}</p>
+      </div>
+    </div>
+  );
+}

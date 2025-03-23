@@ -4,74 +4,104 @@ import {
   useMotionValueEvent,
   useScroll,
   useTransform,
+  // useSpring,
 } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import DraggableImage from "../components/DraggableImage";
 import CTA from "../components/CTA";
 import { useLenis } from "lenis/react";
 import Snap from "lenis/snap";
+import YumeImage from "../../../public/images/ProjectsGallery/YumeVisuals.jpg";
+import ApexSMMA from "../../../public/images/ProjectsGallery/ApexSMMA.jpg";
+import TopAutoGlass from "../../../public/images/ProjectsGallery/TopAutoGlass.jpg";
+import EzPatch from "../../../public/images/ProjectsGallery/EzPatch.jpg";
+import ArtPro from "../../../public/images/ProjectsGallery/ArtPro.jpg";
+import FitBar from "../../../public/images/ProjectsGallery/FitBar.jpg";
 
 const cards = [
   {
-    src: "/images/ProjectsGallery/FitBarHomePage.jpg",
+    src: YumeImage,
     width: 1920,
-    height: 5000,
+    height: 10850,
     url: "https://yume-vanu.vercel.app",
     alt: "yume-visuals-website",
     title: "Yume Visuals",
-    description: <>High-end website</>,
+    description: (
+      <>
+        A bilingual portfolio website for a creative visual agency, featuring
+        videography, photography, and drone filming services with smooth UI
+        interactions.
+      </>
+    ),
+    ctaText: "Visit Yume",
   },
   {
-    src: "/images/ProjectsGallery/ApexSMMA.jpg",
+    src: ApexSMMA,
     width: 1920,
     height: 8640,
-    url: "",
+    url: "https://apex-smma.com",
     alt: "apex-smma-website",
     title: "Apex SMMA",
-    description: "description",
+    description:
+      "A bilingual website for a social media marketing agency, designed with a sleek and modern aesthetic to effectively present services and engage potential clients.",
+    ctaText: "Visit Apex SMMA",
   },
   {
-    src: "/images/ProjectsGallery/TopAutoGlass.jpg",
+    src: TopAutoGlass,
     width: 1493,
     height: 7221,
     url: "https://topautoglass.vercel.app",
     alt: "top-auto-glass-website",
     title: "Top Auto Glass Houston",
-    description: "description",
+    description:
+      "An easy-to-use multi-page website for a company that specializes in auto glass repair and replacement, window tinting, vehicle wraps, paint protection film, and ceramic coating. Designed to help customers quickly find services and request a quote.",
+    ctaText: "Visit Top Auto Glass",
   },
   {
-    src: "/images/ProjectsGallery/EzPatch.jpg",
+    src: EzPatch,
     width: 1920,
     height: 5000,
     url: "",
     alt: "ez-patch-website-design",
     title: "Ez Patch",
-    description: "",
+    description:
+      "A professional website design for a drywall repair company. Currently integrating lead management and CRM automation for streamlined client bookings.",
+    ctaText: "See Design",
   },
   {
-    src: "/images/ProjectsGallery/ArtPro.jpg",
+    src: ArtPro,
     width: 1440,
     height: 4329,
     url: "",
     alt: "art-pro-website-design",
-    title: "Art Pro",
-    description: "",
+    title: "ArtPro",
+    description:
+      "A refined website design for an interior design agency, showcasing their work with a clean and elegant layout. Built to highlight their services and inspire potential clients.",
+    ctaText: "See Design",
   },
   {
-    src: "/images/ProjectsGallery/FitBarHomePage.jpg",
+    src: FitBar,
     width: 1440,
     height: 4476,
     url: "",
     alt: "fit-bar-website-design",
     title: "FitBar",
-    description: "",
+    description:
+      "A multi-page website for a healthy food restaurant featuring a digital menu, meal packages for daily or weekly scheduling, and a dedicated menu page for all meals and beverages. It also includes a contact page with restaurant locations, hours, and an easy way for customers to order online through partners like Wolt.",
+    ctaText: "See Design",
   },
 ];
 export default function HorizontalScroll() {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: container });
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
+  // const scaleX = useSpring(scrollYProgress, {
+  //   stiffness: 100,
+  //   damping: 30,
+  //   restDelta: 0.001,
+  // });
   const [isContainerActive, setIsContainerActive] = useState(false);
+  const [isSnappy] = useState(false);
   const lenis = useLenis();
 
   // Track when we're scrolling within the container
@@ -80,7 +110,7 @@ export default function HorizontalScroll() {
   });
 
   useEffect(() => {
-    if (lenis && container.current) {
+    if (lenis && container.current && isSnappy) {
       const containerOffset = container.current.offsetTop;
       // Calculate snap positions based on container height (600vh)
       const snapPositionsPx = [0, 100, 200, 300, 400, 500].map(
@@ -98,7 +128,7 @@ export default function HorizontalScroll() {
 
       return () => snap.destroy();
     }
-  }, [lenis, isContainerActive]);
+  }, [lenis, isContainerActive, isSnappy]);
 
   return (
     <section ref={container} className="relative h-[600vh]">
@@ -107,23 +137,37 @@ export default function HorizontalScroll() {
           {cards.map((card, i) => (
             <div
               key={i}
-              className="flex h-screen w-screen flex-col items-center justify-center"
+              className="flex h-screen w-screen flex-col items-center px-5 md:flex-row-reverse md:px-32 xl:px-64 2xl:px-80"
             >
               <DraggableImage
                 imageUrl={card.src}
                 width={card.width}
                 height={card.height}
-                className="max-h-[700px] max-w-[500px]"
+                alt={card.alt}
               />
-              <h3 className="my-2 font-median text-2xl">{card.title}</h3>
-              <p className="my-2">{card.description}</p>
+              <div className="flex w-2/3 flex-col items-center md:items-start">
+                <h3 className="font-tilla my-2 text-5xl leading-snug">
+                  {card.title}
+                </h3>
+                <p className="my-2 md:my-3 md:w-2/3 md:text-lg">
+                  {card.description}
+                </p>
 
-              <a href={card.url} target="_blank" className="my-2 inline-block">
-                <CTA text="View project" type="button" />
-              </a>
+                <a
+                  href={card.url}
+                  target="_blank"
+                  className="my-2 inline-block md:my-6"
+                >
+                  <CTA text={card.ctaText} type="button" />
+                </a>
+              </div>
             </div>
           ))}
         </motion.div>
+        {/* <motion.div
+          style={{ scaleX, originX: 0 }}
+          className="absolute bottom-10 left-0 h-1 w-full -translate-x-[100%] bg-[#CC00CC]"
+        ></motion.div> */}
       </div>
     </section>
   );

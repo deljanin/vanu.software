@@ -13,7 +13,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        median: ["var(--font-median)"],
+        tilla: ["var(--font-tilla)"],
         suse: ["var(--font-suse)"],
       },
       keyframes: {

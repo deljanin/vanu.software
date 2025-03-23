@@ -1,61 +1,37 @@
 "use client";
 // import { useEffect, useRef } from "react";
-// import InfiniteAnimatedText from "../components/InfiniteAnimatedText";
+import InfiniteAnimatedText from "../components/InfiniteAnimatedText";
 import CTA from "../components/CTA";
+import Link from "next/link";
 export default function Hero() {
-  // const textArr = [
-  //   "DIGITAL EXPRESSION",
-  //   "WEBSITE",
-  //   "ONLINE IMAGE",
-  //   "COOL TEXT",
-  // ];
-  // const heroRef = useRef<HTMLDivElement>(null);
+  const words1 = [
+    "product websites",
+    "business websites",
+    "custom solutions",
+    "digital experiences",
+    "corporate websites",
+    "enterprise tools",
+  ];
 
-  // useEffect(() => {
-  //   const updateMousePosition = (ev: MouseEvent) => {
-  //     if (!heroRef.current) return;
-  //     const { clientX, clientY } = ev;
-  //     heroRef.current.style.setProperty("--x", `${clientX}px`);
-  //     heroRef.current.style.setProperty("--y", `${clientY}px`);
-  //   };
-
-  //   window.addEventListener("mousemove", updateMousePosition);
-
-  //   return () => {
-  //     window.removeEventListener("mousemove", updateMousePosition);
-  //   };
-  // }, []);
   return (
-    // <div
-    //   ref={heroRef}
-    //   style={{
-    //     backgroundImage: `radial-gradient(
-    //     circle 1000px at var(--x) var(--y),
-    //     #CC00CC30 0%,
-    //     transparent 100%
-    //   )`,
-    //   }}
-    //   className="relative min-h-screen w-full"
-    // >
-    //   <div className="absolute h-full w-full backdrop-blur-3xl"></div>
-    // </div>
-
-    <div className="relative min-h-[200vh] w-full">
-      <div className="sticky top-0 flex min-h-screen w-full flex-col items-center justify-center font-median text-5xl font-medium text-white">
-        <CTA text="View project" type="button" />
-        {/* <span className="flex gap-5">
-          Some cool text than this cool text:
-          <InfiniteAnimatedText texts={textArr} />
-        </span> */}
+    <div className="min-h-screen w-full">
+      <div className="relative flex min-h-screen w-full flex-col justify-center px-5 md:px-32 xl:px-52">
+        <h1 className="font-tilla text-7xl leading-[1.7] text-white">
+          From ideas to reality,
+          <span className="flex gap-5">
+            we create <InfiniteAnimatedText texts={words1} />
+          </span>
+          that make an impact.
+        </h1>
+        <p className="mt-2 text-lg sm:text-xl md:mt-4 xl:w-1/3">
+          From sleek product pages to custom business solutions, we create
+          software that works—so you can focus on what matters. Need a site that
+          stands out? Let’s create it.
+        </p>
+        <Link href="#contact" className="mt-2 md:mt-7">
+          <CTA text="Contact us" type="button" />
+        </Link>
       </div>
-
-      <div
-        className="min-h-screen w-full backdrop-blur-2xl"
-        // style={{
-        //   mask: "linear-gradient(to top, black, black,  transparent)",
-        //   backdropFilter: "blur(25px)",
-        // }}
-      ></div>
     </div>
   );
 }
