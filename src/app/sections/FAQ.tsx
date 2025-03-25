@@ -1,4 +1,5 @@
 "use client";
+import { motion } from "motion/react";
 import React, { useState, useEffect, useRef } from "react";
 
 const faq = [
@@ -71,15 +72,15 @@ const throttle = <T extends (...args: never[]) => void>(
 export default function FAQ() {
   const [index, setIndex] = useState(-1);
   return (
-    <div className="flex w-full items-center justify-center py-20">
-      <div className="relative w-[90%] rounded-3xl py-20">
+    <section className="flex w-full items-center justify-center px-5 py-20 md:px-32">
+      <div className="relative w-full rounded-3xl py-20">
         <Background />
         <div className="flex w-full flex-col items-center justify-center">
-          <h2 className="font-tilla mb-12 text-7xl">FAQ</h2>
+          <h2 className="mb-12 font-tilla text-7xl">FAQ</h2>
           <div className="flex w-1/2 flex-col justify-center gap-7">
             {faq.map((pair, i) => (
               <div
-                className="relative select-none border-b-[1px] border-[#ffffff88] text-xl"
+                className="relative select-none text-xl"
                 key={i}
                 onMouseDown={() => {
                   if (index === i) {
@@ -89,9 +90,14 @@ export default function FAQ() {
                   }
                 }}
               >
+                <motion.div
+                  viewport={{ amount: "all", margin: "-100px", once: true }}
+                  whileInView={{ width: "100%" }}
+                  className={`absolute bottom-0 h-[2px] transition-all duration-500 ${index === i ? "bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF]" : "bg-[#ffffff88]"} `}
+                ></motion.div>
                 <div className="w-full cursor-pointer">
                   <div className="flex items-center justify-between pb-2">
-                    <span className="">{pair.question}</span>
+                    <span>{pair.question}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width={24}
@@ -114,7 +120,7 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

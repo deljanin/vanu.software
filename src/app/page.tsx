@@ -6,14 +6,22 @@ import HowItWorks from "./sections/HowItWorks";
 import Pricing from "./sections/Pricing";
 import FAQ from "./sections/FAQ";
 import HorizontalScroll from "./sections/HorizontalScroll";
+import Contact from "./sections/Contact";
 
 export default function Home() {
   const maskRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
+    const mask = maskRef.current;
+    if (mask) {
+      // Set initial mask position to the center of the screen
+      const initialX = window.innerWidth / 2;
+      const initialY = window.innerHeight / 2;
+      mask.style.maskImage = `radial-gradient(circle 150px at ${initialX}px ${initialY}px, rgba(255,255,255,1) 0%, rgba(255,255,255,0.25) 100%)`;
+    }
+
     const updateMousePosition = (e: MouseEvent) => {
-      if (maskRef.current) {
-        maskRef.current.style.maskImage = `radial-gradient(circle 150px at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,1) 0%, rgba(255,255,255,0.25) 100%)`;
+      if (mask) {
+        mask.style.maskImage = `radial-gradient(circle 150px at ${e.clientX}px ${e.clientY}px, rgba(255,255,255,1) 0%, rgba(255,255,255,0.25) 100%)`;
       }
     };
 
@@ -25,7 +33,11 @@ export default function Home() {
     <>
       <div
         ref={maskRef}
-        className="pointer-events-none fixed left-0 top-0 -z-50 h-full w-full bg-[radial-gradient(#CC00CCA5_1px,transparent_1px)] [background-size:16px_16px]"
+        className={`pointer-events-none fixed left-0 top-0 -z-50 h-full w-full bg-[radial-gradient(#CC00CCA5_1px,transparent_1px)] [background-size:16px_16px]`}
+        style={{
+          maskImage:
+            "radial-gradient(circle 150px at 50vw 50vh, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.25) 100%)",
+        }}
       ></div>
       <div className="relative w-full">
         <Hero />
@@ -39,15 +51,7 @@ export default function Home() {
       <HowItWorks />
       <Pricing />
       <FAQ />
+      <Contact />
     </>
   );
 }
-
-// GRADIENT BLUR
-
-// <div
-//         className="w-full h-screen absolute pointer-events-none"
-//         style={{
-//           mask: 'linear-gradient(to top, black, black,  transparent)',
-//           backdropFilter: 'blur(8px)',
-//         }}></div>

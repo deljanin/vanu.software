@@ -28,8 +28,8 @@ const phases = [
 
 export default function HowItWorks() {
   return (
-    <div className="py-20">
-      <h2 className="font-tilla pb-10 text-center text-7xl">How it works</h2>
+    <section className="py-20">
+      <h2 className="pb-10 text-center font-tilla text-7xl">How it works</h2>
       <div className="relative flex min-h-[350vh] w-full px-5 py-20 md:px-32 xl:px-64 2xl:px-80">
         <div className="relative my-24 flex w-1/5 flex-col justify-between">
           <div className="absolute left-[calc(1rem-2px)] top-0 h-full w-[3px] rounded-full bg-[#252525] [mask-image:linear-gradient(to_bottom,transparent_0%,#000_3%,#000_97%,transparent_100%)]" />
@@ -56,18 +56,18 @@ export default function HowItWorks() {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 function Phase({ number, heading, text }: PhaseProps) {
   return (
     <div className="flex items-start justify-center gap-5">
-      <span className="font-tilla bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text text-9xl leading-[1.2] text-transparent">
+      <span className="bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text font-tilla text-9xl leading-[1.2] text-transparent">
         {number}
       </span>
       <div className="">
-        <h3 className="font-tilla mb-5 pt-1.5 text-5xl leading-snug">
+        <h3 className="mb-5 pt-1.5 font-tilla text-5xl leading-snug">
           {heading}
         </h3>
         <p className="w-5/6 text-xl">{text}</p>

@@ -5,7 +5,7 @@ import CTA from "../components/CTA";
 import Link from "next/link";
 export default function Hero() {
   const words1 = [
-    "product websites",
+    "portfolio websites",
     "business websites",
     "custom solutions",
     "digital experiences",
@@ -14,7 +14,7 @@ export default function Hero() {
   ];
 
   return (
-    <div className="min-h-screen w-full">
+    <section id="home" className="min-h-screen w-full">
       <div className="relative flex min-h-screen w-full flex-col justify-center px-5 md:px-32 xl:px-52">
         <h1 className="font-tilla text-7xl leading-[1.7] text-white">
           From ideas to reality,
@@ -32,6 +32,6 @@ export default function Hero() {
           <CTA text="Contact us" type="button" />
         </Link>
       </div>
-    </div>
+    </section>
   );
 }

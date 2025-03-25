@@ -3,18 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
+    "formik": "^2.4.6",
     "lenis": "^1.1.18",
     "motion": "^12.4.5",
-    "next": "14.2.13",
+    "next": "15.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@types/node": "^20",
