@@ -10,15 +10,15 @@ import Link from "next/link";
 export default function Contact() {
   return (
     <section id="contact" className="px-5 py-20">
-      <div className="relative flex justify-center gap-10">
+      <div className="relative flex flex-col justify-center gap-5 md:flex-row lg:gap-10">
         <div className="">
-          <h2 className="mb-10 font-tilla text-5xl leading-normal">
+          <h2 className="mb-10 font-tilla text-xl leading-relaxed sm:text-3xl sm:leading-relaxed md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-normal">
             Tell us about your project <br />
             <span className="bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text text-transparent">
               {"We'll handle the rest"}
             </span>
           </h2>
-          <div className="relative text-xl">
+          <div className="relative lg:text-xl">
             <p className="">
               Describe your project idea. The more details the better.{" "}
               <br className="hidden md:block" /> Here is what happens next:
@@ -28,13 +28,13 @@ export default function Contact() {
               <li>Together we discuss your project on a quick call.</li>
               <li>Finally, you get a collaboration offer from Vanu.</li>
             </ol>
-            <div className="mt-20">
+            <div className="mt-5 lg:mt-20">
               <p className="mb-2">Contact us directly:</p>
               <div className="flex items-center gap-5">
                 <MagneticComponent>
                   <a href="mailto:contact@vanu.software">
                     <svg
-                      className="w-12 cursor-pointer fill-white transition-all duration-200 hover:fill-[url(#linear-gradient-email)] hover:transition-all hover:duration-200"
+                      className="w-8 cursor-pointer fill-white transition-all duration-200 hover:fill-[url(#linear-gradient-email)] hover:transition-all hover:duration-200 md:w-12"
                       viewBox="0 0 17 12"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ export default function Contact() {
                       viewBox="0 0 21 20"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-10 cursor-pointer fill-white transition-all duration-200 hover:fill-[url(#linear-gradient-email)] hover:transition-all hover:duration-200"
+                      className="w-7 cursor-pointer fill-white transition-all duration-200 hover:fill-[url(#linear-gradient-email)] hover:transition-all hover:duration-200 md:w-10"
                     >
                       <path d="M6.46699 0H14.867C18.067 0 20.667 2.6 20.667 5.8V14.2C20.667 15.7383 20.0559 17.2135 18.9682 18.3012C17.8805 19.3889 16.4052 20 14.867 20H6.46699C3.26699 20 0.666992 17.4 0.666992 14.2V5.8C0.666992 4.26174 1.27806 2.78649 2.36577 1.69878C3.45348 0.61107 4.92874 0 6.46699 0ZM6.26699 2C5.31221 2 4.39654 2.37928 3.72141 3.05442C3.04628 3.72955 2.66699 4.64522 2.66699 5.6V14.4C2.66699 16.39 4.27699 18 6.26699 18H15.067C16.0218 18 16.9374 17.6207 17.6126 16.9456C18.2877 16.2705 18.667 15.3548 18.667 14.4V5.6C18.667 3.61 17.057 2 15.067 2H6.26699ZM15.917 3.5C16.2485 3.5 16.5665 3.6317 16.8009 3.86612C17.0353 4.10054 17.167 4.41848 17.167 4.75C17.167 5.08152 17.0353 5.39946 16.8009 5.63388C16.5665 5.8683 16.2485 6 15.917 6C15.5855 6 15.2675 5.8683 15.0331 5.63388C14.7987 5.39946 14.667 5.08152 14.667 4.75C14.667 4.41848 14.7987 4.10054 15.0331 3.86612C15.2675 3.6317 15.5855 3.5 15.917 3.5ZM10.667 5C11.9931 5 13.2648 5.52678 14.2025 6.46447C15.1402 7.40215 15.667 8.67392 15.667 10C15.667 11.3261 15.1402 12.5979 14.2025 13.5355C13.2648 14.4732 11.9931 15 10.667 15C9.34091 15 8.06914 14.4732 7.13146 13.5355C6.19378 12.5979 5.66699 11.3261 5.66699 10C5.66699 8.67392 6.19378 7.40215 7.13146 6.46447C8.06914 5.52678 9.34091 5 10.667 5ZM10.667 7C9.87134 7 9.10828 7.31607 8.54567 7.87868C7.98306 8.44129 7.66699 9.20435 7.66699 10C7.66699 10.7956 7.98306 11.5587 8.54567 12.1213C9.10828 12.6839 9.87134 13 10.667 13C11.4626 13 12.2257 12.6839 12.7883 12.1213C13.3509 11.5587 13.667 10.7956 13.667 10C13.667 9.20435 13.3509 8.44129 12.7883 7.87868C12.2257 7.31607 11.4626 7 10.667 7Z" />
                     </svg>
@@ -73,7 +73,7 @@ export default function Contact() {
           </div>
         </div>
         <svg
-          className="absolute bottom-14 left-[36%]"
+          className="absolute bottom-2 left-[33%] hidden xl:block 2xl:bottom-14 2xl:left-[36%]"
           width="348"
           height="140"
           viewBox="0 0 348 140"
@@ -165,7 +165,7 @@ function ContactForm() {
   return (
     <>
       <div className="flex flex-col items-center">
-        <div className="group relative min-h-[500px] max-w-[600px] rounded-3xl bg-[#151515] px-8 py-6">
+        <div className="group relative min-h-[500px] w-full rounded-3xl bg-[#151515] px-8 py-6 sm:max-w-[600px]">
           <Formik
             initialValues={{
               name: "",
@@ -260,7 +260,7 @@ function ContactForm() {
             }}
           />
         </div>
-        <h3 className="mt-5">
+        <h3 className="mt-5 text-center md:text-left">
           <span className="opacity-50">
             By submitting this form you agree to our{" "}
           </span>

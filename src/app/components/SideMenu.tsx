@@ -25,7 +25,7 @@ export default function SideMenu() {
         {/* Menu Links */}
 
         <div className="flex flex-col items-center gap-[4.5rem]">
-          <Link
+          {/* <Link
             href="#about"
             onClick={() => {
               lenis?.scrollTo("#about", {
@@ -35,7 +35,7 @@ export default function SideMenu() {
             className="-rotate-90 transform bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text text-white transition-all hover:text-transparent"
           >
             About
-          </Link>
+          </Link> */}
           <Link
             href="/#contact"
             onClick={() => {

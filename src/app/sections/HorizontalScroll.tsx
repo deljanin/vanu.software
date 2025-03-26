@@ -92,6 +92,7 @@ const cards = [
   },
 ];
 export default function HorizontalScroll() {
+  const [isMobile, setIsMobile] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: container });
   const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-500vw"]);
@@ -108,6 +109,13 @@ export default function HorizontalScroll() {
   useMotionValueEvent(scrollYProgress, "change", (progress) => {
     setIsContainerActive(progress > 0 && progress < 1);
   });
+  // Check for mobile screens on mount and resize
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (lenis && container.current && isSnappy) {
@@ -131,13 +139,16 @@ export default function HorizontalScroll() {
   }, [lenis, isContainerActive, isSnappy]);
 
   return (
-    <section ref={container} className="relative h-[600vh]">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex">
+    <section ref={container} className="relative md:h-[600vh]">
+      <div className="flex h-full flex-col items-center justify-center gap-10 overflow-hidden md:sticky md:top-0 md:h-screen md:flex-row md:items-start md:justify-normal md:gap-0">
+        <motion.div
+          style={!isMobile ? { x } : {}}
+          className="flex flex-col items-center justify-center gap-10 md:flex-row md:gap-0"
+        >
           {cards.map((card, i) => (
             <div
               key={i}
-              className="flex h-screen w-screen flex-col items-center px-5 md:flex-row-reverse md:px-32 xl:px-64 2xl:px-80"
+              className="flex w-full flex-col items-center gap-5 p-5 md:h-screen md:w-screen md:flex-row-reverse lg:px-32 2xl:px-80"
             >
               <DraggableImage
                 imageUrl={card.src}
@@ -145,11 +156,11 @@ export default function HorizontalScroll() {
                 height={card.height}
                 alt={card.alt}
               />
-              <div className="flex w-2/3 flex-col items-center md:items-start">
-                <h3 className="font-tilla my-2 text-5xl leading-snug">
+              <div className="flex flex-col xl:w-2/3">
+                <h3 className="my-2 font-tilla text-xl leading-relaxed sm:text-3xl sm:leading-relaxed md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug">
                   {card.title}
                 </h3>
-                <p className="my-2 md:my-3 md:w-2/3 md:text-lg">
+                <p className="my-2 sm:w-4/5 md:my-3 md:text-left md:text-lg xl:w-2/3">
                   {card.description}
                 </p>
 

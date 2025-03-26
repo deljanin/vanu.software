@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { ReactLenis } from "lenis/react";
-import SideMenu from "./components/SideMenu";
+// import SideMenu from "./components/SideMenu";
 import { Metadata } from "next";
 import Footer from "./components/Footer";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
         className={`${tilla.variable} ${suse.variable} font-suse antialiased`}
       >
         <ReactLenis root>
-          <SideMenu />
+          {/* <SideMenu /> */}
           {children}
           <Footer />
         </ReactLenis>

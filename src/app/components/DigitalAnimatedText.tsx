@@ -38,7 +38,7 @@ export default function DigitalAnimatedText({ text }: { text: string }) {
 
   return (
     <div className="relative flex min-h-[80vh] flex-col items-center px-5 pt-44">
-      <p className="break-words text-center text-4xl font-light leading-snug text-white md:w-1/2">
+      <p className="break-words text-center text-xl leading-snug text-white sm:text-2xl md:w-1/2 lg:text-4xl lg:font-light">
         {text.split(" ").map((word, wordIndex) => (
           <span key={wordIndex} className="inline-block whitespace-nowrap px-2">
             {word.split("").map((char, charIndex) => {

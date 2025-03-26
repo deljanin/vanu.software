@@ -1,5 +1,7 @@
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import { useInView } from "motion/react";
 export default function DraggableImage({
   imageUrl,
   alt,
@@ -15,6 +17,7 @@ export default function DraggableImage({
   const [isDragging, setIsDragging] = useState(false);
   const startY = useRef(0);
   const scrollY = useRef(0);
+  const isInView = useInView(containerRef, { amount: "all" });
 
   const scrollBarStyles: React.CSSProperties = {
     scrollbarWidth: "thin", // Firefox
@@ -23,6 +26,7 @@ export default function DraggableImage({
   };
 
   const handleMouseDown = (event: React.MouseEvent | React.TouchEvent) => {
+    if (!isInView) return;
     setIsDragging(true);
     startY.current =
       "touches" in event ? event.touches[0].clientY : event.clientY;
@@ -34,6 +38,7 @@ export default function DraggableImage({
   };
 
   useEffect(() => {
+    if (!isInView) return;
     const handleMouseMove = (event: MouseEvent | TouchEvent) => {
       if (!isDragging || !containerRef.current) return;
 
@@ -56,13 +61,13 @@ export default function DraggableImage({
       window.removeEventListener("touchmove", handleMouseMove);
       window.removeEventListener("touchend", handleMouseUp);
     };
-  }, [isDragging]);
+  }, [isDragging, isInView]);
 
   return (
     <div
       ref={containerRef}
       style={{ ...scrollBarStyles }}
-      className={`max-h-[700px] max-w-[500px] cursor-grab select-none overflow-x-hidden overscroll-contain rounded-md active:cursor-grabbing`}
+      className={`h-[50vh] max-h-[700px] max-w-[500px] cursor-grab select-none overflow-x-hidden rounded-md active:cursor-grabbing md:h-auto ${isInView ? "overflow-y-scroll" : "cursor-not-allowed overflow-y-hidden md:overflow-y-scroll"}`}
       onMouseDown={handleMouseDown}
       onTouchStart={handleMouseDown}
     >

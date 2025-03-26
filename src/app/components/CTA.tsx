@@ -22,7 +22,7 @@ function CTA({ text, type, className, ...rest }: CTAProps) {
     >
       <button
         type={type}
-        className={`relative z-10 rounded-2xl bg-[#CC00CC] px-4 py-2 text-lg font-medium transition-all delay-100 duration-200 group-hover:bg-[#0d0d0d]`}
+        className={`relative z-10 rounded-2xl bg-[#CC00CC] px-4 py-2 font-medium transition-all delay-100 duration-200 group-hover:bg-[#0d0d0d] sm:text-lg`}
         {...rest}
       >
         <span className="text-white group-hover:font-bold">{text}</span>

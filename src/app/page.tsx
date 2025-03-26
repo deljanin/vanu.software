@@ -7,9 +7,13 @@ import Pricing from "./sections/Pricing";
 import FAQ from "./sections/FAQ";
 import HorizontalScroll from "./sections/HorizontalScroll";
 import Contact from "./sections/Contact";
+// import Loader from "./components/Loader";
+// import { AnimatePresence } from "motion/react";
 
 export default function Home() {
   const maskRef = useRef<HTMLDivElement>(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     const mask = maskRef.current;
     if (mask) {
@@ -29,8 +33,15 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoaded(true);
+  //   }, 2000);
+  // });
+
   return (
     <>
+      {/* <AnimatePresence mode="wait">{!isLoaded && <Loader />}</AnimatePresence> */}
       <div
         ref={maskRef}
         className={`pointer-events-none fixed left-0 top-0 -z-50 h-full w-full bg-[radial-gradient(#CC00CCA5_1px,transparent_1px)] [background-size:16px_16px]`}
@@ -42,10 +53,9 @@ export default function Home() {
       <div className="relative w-full">
         <Hero />
         <DigitalAnimatedText text="They say a picture is worth a thousand words… so what is a dynamic website worth? Think of it as your digital handshake—a first impression that lasts. We make sure it’s not just good, but unforgettable. Take a look below and see what we mean." />
-        {/* Optimized background */}
 
         {/* Other Background Elements */}
-        <div className="absolute left-0 top-0 -z-40 h-full w-full bg-[radial-gradient(circle_500px_at_100%_0,#CC00CC,transparent),radial-gradient(circle_500px_at_-15%_100vh,#CC00CC,transparent),radial-gradient(circle_300px_at_100%_80%,#CC00CC,transparent)]"></div>
+        <div className="absolute left-0 top-0 -z-40 h-full w-full bg-[radial-gradient(circle_250px_at_100%_0,#CC00CC,transparent),radial-gradient(circle_250px_at_-15%_100vh,#CC00CC,transparent),radial-gradient(circle_150px_at_110%_90%,#CC00CC,transparent)] md:bg-[radial-gradient(circle_500px_at_100%_0,#CC00CC,transparent),radial-gradient(circle_500px_at_-15%_100vh,#CC00CC,transparent),radial-gradient(circle_300px_at_100%_80%,#CC00CC,transparent)]"></div>
       </div>
       <HorizontalScroll />
       <HowItWorks />
@@ -55,3 +65,4 @@ export default function Home() {
     </>
   );
 }
+// text-xl leading-relaxed sm:text-3xl sm:leading-relaxed md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug

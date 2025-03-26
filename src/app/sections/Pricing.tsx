@@ -12,7 +12,7 @@ interface Card {
 const services = [
   {
     service: "Starter Website",
-    price: "From 620€",
+    price: "From $620",
     perfectFor:
       "Individuals, freelancers, or small businesses needing a simple online presence.",
     points: [
@@ -25,7 +25,7 @@ const services = [
   },
   {
     service: "Business Website",
-    price: "From 1100€",
+    price: "From $1160",
     perfectFor:
       "Small to medium-sized businesses looking to grow their online presence.",
     points: [
@@ -39,7 +39,7 @@ const services = [
   },
   {
     service: "Premium Custom Website",
-    price: "From 2600€",
+    price: "From $2600",
     perfectFor:
       "Established businesses or those needing a high-performance, feature-rich website.",
     points: [
@@ -72,10 +72,12 @@ export default function Pricing() {
   return (
     <section
       id="services"
-      className="flex w-full flex-col items-center justify-center px-5 py-20 md:px-32"
+      className="flex w-full flex-col items-center justify-center px-5 py-20 md:md:px-24"
     >
-      <h2 className="mb-20 font-tilla text-7xl leading-tight">Services</h2>
-      <div className="mb-11 flex w-full flex-wrap justify-between gap-5">
+      <h2 className="mb-10 font-tilla text-2xl leading-relaxed sm:text-3xl sm:leading-relaxed md:mb-20 md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug 2xl:text-7xl 2xl:leading-tight">
+        Services
+      </h2>
+      <div className="mb-11 flex w-full flex-wrap justify-center gap-10 2xl:justify-between">
         {services.map((service, key) => (
           <Card
             key={key}
@@ -106,10 +108,10 @@ function Card({ service, price, points, perfectFor }: Card) {
   });
   return (
     <div className="flex flex-col gap-5">
-      <div className="group relative flex min-h-[570px] w-[365px] flex-col justify-between rounded-3xl bg-[#151515] px-8 py-6 transition-all duration-200">
+      <div className="group relative flex min-h-[570px] w-full max-w-[365px] flex-col justify-between rounded-3xl bg-[#151515] px-8 py-6 transition-all duration-200">
         <div>
-          <span className="mb-1 inline-block text-lg">{service}</span>
-          <h3 className="mb-4 bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text font-tilla text-2xl leading-tight text-transparent">
+          <span className="mb-1 inline-block md:text-lg">{service}</span>
+          <h3 className="mb-4 bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text font-tilla text-lg leading-tight text-transparent md:text-2xl">
             {price}
           </h3>
           <div className="mb-1 h-[2px] w-full rounded-full bg-[#252525]"></div>
@@ -137,7 +139,7 @@ function Card({ service, price, points, perfectFor }: Card) {
           }}
         />
       </div>
-      <h4 className="text-md w-[365px] px-8">
+      <h4 className="md:text-md w-full max-w-[365px] px-8">
         <span className="font-bold">Perfect for:</span> <br />
         {perfectFor}
       </h4>

@@ -76,11 +76,13 @@ export default function FAQ() {
       <div className="relative w-full rounded-3xl py-20">
         <Background />
         <div className="flex w-full flex-col items-center justify-center">
-          <h2 className="mb-12 font-tilla text-7xl">FAQ</h2>
-          <div className="flex w-1/2 flex-col justify-center gap-7">
+          <h2 className="mb-12 font-tilla text-xl leading-relaxed sm:text-3xl sm:leading-relaxed md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug 2xl:text-7xl">
+            FAQ
+          </h2>
+          <div className="flex flex-col justify-center gap-7 px-5 xl:w-1/2">
             {faq.map((pair, i) => (
               <div
-                className="relative select-none text-xl"
+                className="relative select-none text-lg md:text-xl"
                 key={i}
                 onMouseDown={() => {
                   if (index === i) {
@@ -96,7 +98,7 @@ export default function FAQ() {
                   className={`absolute bottom-0 h-[2px] transition-all duration-500 ${index === i ? "bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF]" : "bg-[#ffffff88]"} `}
                 ></motion.div>
                 <div className="w-full cursor-pointer">
-                  <div className="flex items-center justify-between pb-2">
+                  <div className="flex items-center justify-between gap-3 pb-2">
                     <span>{pair.question}</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +112,7 @@ export default function FAQ() {
                     </svg>
                   </div>
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${index === i ? "mt-2 max-h-[100px] pb-2" : "max-h-0"} `}
+                    className={`overflow-hidden transition-all duration-300 ${index === i ? "mt-2 max-h-[350px] pb-2 md:max-h-[100px]" : "max-h-0"} `}
                   >
                     <div className="">{pair.answer}</div>
                   </div>
@@ -187,6 +189,12 @@ function Background() {
           50% {transform: translateX(50%) translateY(10%);}
           100% {transform: translateX(-50%) translateY(-10%);}
           }
+
+          @media (max-width: 768px) {
+            [data-no-animation-on-mobile] {
+              animation: none !important;
+            }
+          }
           `}
       </style>
 
@@ -214,6 +222,7 @@ function Background() {
           style={{ filter: "url(#goo) blur(40px)" }}
         >
           <div
+            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -229,6 +238,7 @@ function Background() {
             }}
           ></div>
           <div
+            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -244,6 +254,7 @@ function Background() {
             }}
           ></div>
           <div
+            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -259,6 +270,7 @@ function Background() {
             }}
           ></div>
           <div
+            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -274,6 +286,7 @@ function Background() {
             }}
           ></div>
           <div
+            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -289,6 +302,7 @@ function Background() {
             }}
           ></div>
           <div
+            data-no-animation-on-mobile
             ref={interBubbleRef}
             style={{
               position: "absolute",

@@ -71,8 +71,8 @@ export default function Footer() {
         </svg>
         <div className="absolute -bottom-10 h-[3px] w-full bg-[#252525]"></div>
       </motion.div>
-      <div className="flex w-full justify-between pt-32 text-lg">
-        <div className="">
+      <div className="flex w-full flex-wrap gap-10 pt-20 text-lg sm:justify-center xl:justify-between xl:pt-32">
+        <div className="w-[300px] md:w-auto">
           <h3 className="bold mb-3 font-tilla text-2xl">Services</h3>
           <ul>
             <li className="bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text transition-all duration-300 hover:text-transparent">
@@ -89,7 +89,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="">
+        <div className="w-[300px] md:w-auto">
           <h3 className="bold mb-3 font-tilla text-2xl">Socials</h3>
           <ul>
             <li>
@@ -138,7 +138,7 @@ export default function Footer() {
             {/* <li>LinkedIn</li> */}
           </ul>
         </div>
-        <div className="">
+        <div className="w-[300px] md:w-auto">
           <h3 className="bold mb-3 font-tilla text-2xl">Contact</h3>
           <ul>
             <li>
@@ -161,7 +161,7 @@ export default function Footer() {
             <li></li>
           </ul>
         </div>
-        <div className="">
+        <div className="w-[300px] md:w-auto">
           <h3 className="bold mb-3 font-tilla text-2xl">Other</h3>
           <ul>
             <li className="bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text transition-all duration-300 hover:text-transparent">
