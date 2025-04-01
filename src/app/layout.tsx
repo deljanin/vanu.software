@@ -1,9 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import { ReactLenis } from "lenis/react";
-// import SideMenu from "./components/SideMenu";
 import { Metadata } from "next";
 import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 const suse = localFont({
   src: "./fonts/SUSEvariableFont.ttf",
@@ -33,6 +33,7 @@ export default function RootLayout({
         className={`${tilla.variable} ${suse.variable} font-suse antialiased`}
       >
         <ReactLenis root>
+          <Navbar />
           {/* <SideMenu /> */}
           {children}
           <Footer />

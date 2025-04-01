@@ -72,7 +72,7 @@ export default function Pricing() {
   return (
     <section
       id="services"
-      className="flex w-full flex-col items-center justify-center px-5 py-20 md:md:px-24"
+      className="flex w-full flex-col items-center justify-center px-5 py-20 md:px-24 2xl:px-32"
     >
       <h2 className="mb-10 font-tilla text-2xl leading-relaxed sm:text-3xl sm:leading-relaxed md:mb-20 md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug 2xl:text-7xl 2xl:leading-tight">
         Services

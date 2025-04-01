@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import DigitalAnimatedText from "./components/DigitalAnimatedText";
 import Hero from "./sections/Hero";
 import HowItWorks from "./sections/HowItWorks";
@@ -7,12 +7,12 @@ import Pricing from "./sections/Pricing";
 import FAQ from "./sections/FAQ";
 import HorizontalScroll from "./sections/HorizontalScroll";
 import Contact from "./sections/Contact";
-// import Loader from "./components/Loader";
-// import { AnimatePresence } from "motion/react";
+import Loader from "./components/Loader";
+import { AnimatePresence } from "motion/react";
 
 export default function Home() {
   const maskRef = useRef<HTMLDivElement>(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const mask = maskRef.current;
@@ -33,15 +33,17 @@ export default function Home() {
     return () => window.removeEventListener("mousemove", updateMousePosition);
   }, []);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoaded(true);
-  //   }, 2000);
-  // });
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+      document.body.style.cursor = "default";
+      window.scrollTo(0, 0);
+    }, 2800);
+  });
 
   return (
     <>
-      {/* <AnimatePresence mode="wait">{!isLoaded && <Loader />}</AnimatePresence> */}
+      <AnimatePresence mode="wait">{isLoading && <Loader />}</AnimatePresence>
       <div
         ref={maskRef}
         className={`pointer-events-none fixed left-0 top-0 -z-50 h-full w-full bg-[radial-gradient(#CC00CCA5_1px,transparent_1px)] [background-size:16px_16px]`}

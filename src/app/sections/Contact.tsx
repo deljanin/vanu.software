@@ -24,7 +24,7 @@ export default function Contact() {
               <br className="hidden md:block" /> Here is what happens next:
             </p>
             <ol className="list-inside list-decimal">
-              <li>We reply within 12 business hours .</li>
+              <li>We reply within 12 business hours.</li>
               <li>Together we discuss your project on a quick call.</li>
               <li>Finally, you get a collaboration offer from Vanu.</li>
             </ol>
