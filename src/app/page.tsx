@@ -37,7 +37,6 @@ export default function Home() {
     setTimeout(() => {
       setIsLoading(false);
       document.body.style.cursor = "default";
-      window.scrollTo(0, 0);
     }, 2800);
   });
 
@@ -54,7 +53,7 @@ export default function Home() {
       ></div>
       <div className="relative w-full">
         <Hero />
-        <DigitalAnimatedText text="They say a picture is worth a thousand words… so what is a dynamic website worth? Think of it as your digital handshake—a first impression that lasts. We make sure it’s not just good, but unforgettable. Take a look below and see what we mean." />
+        <DigitalAnimatedText text="They say a picture is worth a thousand words… so what is a dynamic website worth? Think of it as your digital handshake-a first impression that lasts. We make sure it’s not just good, but unforgettable. Take a look below and see what we mean." />
 
         {/* Other Background Elements */}
         <div className="absolute left-0 top-0 -z-40 h-full w-full bg-[radial-gradient(circle_250px_at_100%_0,#CC00CC,transparent),radial-gradient(circle_250px_at_-15%_100vh,#CC00CC,transparent),radial-gradient(circle_150px_at_110%_90%,#CC00CC,transparent)] md:bg-[radial-gradient(circle_500px_at_100%_0,#CC00CC,transparent),radial-gradient(circle_500px_at_-15%_100vh,#CC00CC,transparent),radial-gradient(circle_300px_at_100%_80%,#CC00CC,transparent)]"></div>

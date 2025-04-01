@@ -38,7 +38,7 @@ const services = [
     ],
   },
   {
-    service: "Premium Custom Website",
+    service: "High-end Custom Website",
     price: "From $2600",
     perfectFor:
       "Established businesses or those needing a high-performance, feature-rich website.",

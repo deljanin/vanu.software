@@ -17,9 +17,39 @@ const tilla = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Vanu Software",
+  title: "Vanu Software | Custom Web Development & Design",
   description:
-    "We create stunning portfolio websites and custom software tailored to your needs. From just an idea to a complete solution. We’ve got you covered.",
+    "Get a professional, high-quality website tailored to your business needs. At Vanu Software, we build fast, visually stunning, and conversion-focused websites that help you stand out and grow online.",
+  keywords: `web design, web development, custom websites, software solutions, website redesign, UI/UX design, web applications, website development, frontend development, modern web design, interactive websites, React development, digital solutions, professional web services,  Vanu Software`,
+  alternates: {
+    canonical: "https://vanu.software/",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://vanu.software/",
+    title: "Vanu Software | Web Development & Design",
+    description:
+      "Get a professional, high-quality website tailored to your business needs. At Vanu Software, we build fast, visually stunning, and conversion-focused websites that help you stand out and grow online.",
+    images: [
+      {
+        url: "https://vanu.software/icon.svg",
+        width: 1200,
+        height: 630,
+        alt: "Vanu Software | Web Development & Design",
+      },
+    ],
+    siteName: "Vanu Software",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vanu Software | Web Development & Design",
+    description:
+      "Need a website? We build high-quality, conversion-focused websites that help businesses grow online.",
+    images: ["https://vanu.software/icon.svg"],
+  },
+  other: {
+    "google-site-verification": "eHBz5t8ZQ543afAYc0zlfstqVPsyOY72vwfVsoK5nRA",
+  },
 };
 
 export default function RootLayout({

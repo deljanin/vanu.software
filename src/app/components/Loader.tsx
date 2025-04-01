@@ -57,7 +57,7 @@ export default function Loader() {
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 2700);
+    }, 2500);
   }, []);
 
   return (

@@ -93,7 +93,7 @@ export default function FAQ() {
                 }}
               >
                 <motion.div
-                  viewport={{ amount: "all", margin: "-100px", once: true }}
+                  viewport={{ amount: "all", once: true }}
                   whileInView={{ width: "100%" }}
                   className={`absolute bottom-0 h-[2px] transition-all duration-500 ${index === i ? "bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF]" : "bg-[#ffffff88]"} `}
                 ></motion.div>
@@ -190,15 +190,10 @@ function Background() {
           100% {transform: translateX(-50%) translateY(-10%);}
           }
 
-          @media (max-width: 768px) {
-            [data-no-animation-on-mobile] {
-              animation: none !important;
-            }
-          }
           `}
       </style>
 
-      <div className="absolute top-0 -z-10 h-full w-full overflow-hidden rounded-3xl bg-[linear-gradient(40deg,rgb(108,0,162),rgb(0,17,82))] opacity-80 shadow-xl">
+      <div className="absolute top-0 -z-10 h-full w-full overflow-hidden rounded-3xl bg-[linear-gradient(40deg,#CC00CC,rgb(0,17,82))] opacity-80 shadow-xl 2xl:bg-[linear-gradient(40deg,rgb(108,0,162),rgb(0,17,82))]">
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">
@@ -218,11 +213,10 @@ function Background() {
           </defs>
         </svg>
         <div
-          className="absolute left-0 top-0 h-full w-full"
+          className="absolute left-0 top-0 hidden h-full w-full 2xl:block"
           style={{ filter: "url(#goo) blur(40px)" }}
         >
           <div
-            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -238,7 +232,6 @@ function Background() {
             }}
           ></div>
           <div
-            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -254,7 +247,6 @@ function Background() {
             }}
           ></div>
           <div
-            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -270,7 +262,6 @@ function Background() {
             }}
           ></div>
           <div
-            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -286,7 +277,6 @@ function Background() {
             }}
           ></div>
           <div
-            data-no-animation-on-mobile
             style={{
               position: "absolute",
               background:
@@ -302,7 +292,6 @@ function Background() {
             }}
           ></div>
           <div
-            data-no-animation-on-mobile
             ref={interBubbleRef}
             style={{
               position: "absolute",
