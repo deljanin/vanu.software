@@ -3,7 +3,10 @@
 import InfiniteAnimatedText from "../components/InfiniteAnimatedText";
 import CTA from "../components/CTA";
 import Link from "next/link";
+import { useLenis } from "lenis/react";
 export default function Hero() {
+  const lenis = useLenis();
+
   const words1 = [
     "portfolio websites",
     "business websites",
@@ -28,7 +31,15 @@ export default function Hero() {
           software that works—so you can focus on what matters. Need a site that
           stands out? Let’s create it.
         </p>
-        <Link href="#contact" className="mt-4 md:mt-7">
+        <Link
+          href="#contact"
+          className="mt-4 md:mt-7"
+          onClick={() => {
+            lenis?.scrollTo("#contact", {
+              duration: 3,
+            });
+          }}
+        >
           <CTA text="Contact us" type="button" />
         </Link>
       </div>

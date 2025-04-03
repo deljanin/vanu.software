@@ -1,6 +1,8 @@
+"use client";
 import { motion, useTime, useTransform } from "motion/react";
 import Link from "next/link";
 import CTA from "../components/CTA";
+import { useLenis } from "lenis/react";
 
 interface Card {
   service: string;
@@ -97,6 +99,8 @@ export default function Pricing() {
 }
 
 function Card({ service, price, points, perfectFor }: Card) {
+  const lenis = useLenis();
+
   const time = useTime();
 
   const rotateTransform = useTransform(time, [0, 2500], [0, 360], {
@@ -123,7 +127,13 @@ function Card({ service, price, points, perfectFor }: Card) {
             ))}
           </ul>
         </div>
-        <Link href="/#contact" className="w-max">
+        <Link
+          href="/#contact"
+          className="w-max"
+          onClick={() => {
+            lenis?.scrollTo("#contact");
+          }}
+        >
           <CTA text="Contact us" type="button" />
         </Link>
         <motion.div

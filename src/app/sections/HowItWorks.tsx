@@ -1,3 +1,6 @@
+"use client";
+import { useRef } from "react";
+import { useInView, motion } from "motion/react";
 interface PhaseProps {
   number: string;
   heading: string;
@@ -63,16 +66,60 @@ export default function HowItWorks() {
 }
 
 function Phase({ number, heading, text }: PhaseProps) {
+  const container = useRef(null);
+  const isInView = useInView(container, { once: true });
+  const animation = {
+    enterRight: (i: number) => ({
+      x: "0",
+      transition: {
+        duration: 0.75,
+        ease: [0.33, 1, 0.68, 1],
+        delay: 0.075 * i,
+      },
+    }),
+    enterLeft: (i: number) => ({
+      x: "0",
+      opacity: 1,
+      transition: {
+        duration: 0.75,
+        ease: [0.33, 1, 0.68, 1],
+        delay: 0.075 * i,
+      },
+    }),
+  };
   return (
-    <div className="flex flex-col items-start justify-center lg:flex-row lg:gap-5">
-      <span className="bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text font-tilla text-2xl leading-relaxed text-transparent sm:text-5xl sm:leading-relaxed md:text-left md:text-6xl md:leading-normal xl:text-9xl xl:leading-[1.2]">
+    <div className="flex flex-col items-start justify-center overflow-hidden lg:flex-row lg:gap-5">
+      <motion.span
+        className="bg-[linear-gradient(to_right,#BDDFFF,#CC00CC)] bg-clip-text font-tilla text-2xl leading-relaxed text-transparent sm:text-5xl sm:leading-relaxed md:text-left md:text-6xl md:leading-normal xl:text-9xl xl:leading-[1.2]"
+        custom={0}
+        variants={animation}
+        initial={{ x: "-100%", opacity: 0 }}
+        animate={isInView ? "enterLeft" : ""}
+      >
         {number}
-      </span>
-      <div className="">
-        <h3 className="mb-5 pt-1.5 font-tilla text-xl leading-relaxed sm:text-3xl sm:leading-relaxed md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug">
+      </motion.span>
+
+      <div className="overflow-hidden">
+        <motion.h3
+          custom={1}
+          variants={animation}
+          initial={{ x: "100%" }}
+          animate={isInView ? "enterRight" : ""}
+          className="mb-5 pt-1.5 font-tilla text-xl leading-relaxed sm:text-3xl sm:leading-relaxed md:text-left md:text-4xl md:leading-normal xl:text-5xl xl:leading-snug"
+        >
           {heading}
-        </h3>
-        <p className="md:w-5/6 md:text-xl">{text}</p>
+        </motion.h3>
+        <div ref={container} className="overflow-hidden">
+          <motion.p
+            className="md:w-5/6 md:text-xl"
+            custom={2}
+            variants={animation}
+            initial={{ x: "130%" }}
+            animate={isInView ? "enterRight" : ""}
+          >
+            {text}
+          </motion.p>
+        </div>
       </div>
     </div>
   );

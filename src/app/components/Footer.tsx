@@ -95,7 +95,7 @@ export default function Footer() {
             <li>
               <a
                 target="_blank"
-                href="https://instagram.com"
+                href="https://instagram.com/vanu_software"
                 className="group flex items-center gap-3 bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text text-white transition-all duration-300 hover:text-transparent"
               >
                 <svg
@@ -112,7 +112,7 @@ export default function Footer() {
               </a>
             </li>
 
-            <li className="">
+            {/* <li className="">
               <a
                 target="_blank"
                 href="https://facebook.com"
@@ -133,7 +133,7 @@ export default function Footer() {
                 </svg>
                 Facebook
               </a>
-            </li>
+            </li> */}
 
             {/* <li>LinkedIn</li> */}
           </ul>

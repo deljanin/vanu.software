@@ -61,7 +61,7 @@ const cards = [
     src: EzPatch,
     width: 1920,
     height: 5000,
-    url: "",
+    url: "https://www.figma.com/proto/EETmyu6SzC0k1u9HmNkvPB/Ez-Patch?page-id=0%3A1&node-id=53-4&viewport=597%2C394%2C0.34&t=9NJUVWPbHGuu06Pd-1&scaling=min-zoom&content-scaling=fixed",
     alt: "ez-patch-website-design",
     title: "Ez Patch",
     description:
@@ -72,7 +72,7 @@ const cards = [
     src: ArtPro,
     width: 1440,
     height: 4329,
-    url: "",
+    url: "https://www.figma.com/proto/1IzS2jQks91Cp4tNbMdJ0x/ArtPro?page-id=0%3A1&node-id=56-106&p=f&viewport=1180%2C2187%2C0.15&t=FGHfJHLMD2VUq0bJ-1&scaling=min-zoom&content-scaling=fixed",
     alt: "art-pro-website-design",
     title: "ArtPro",
     description:
@@ -83,7 +83,7 @@ const cards = [
     src: FitBar,
     width: 1440,
     height: 4476,
-    url: "",
+    url: "https://www.figma.com/proto/CqCaWUhxSwCOYxwWloCfwJ/FitBar?page-id=0%3A1&node-id=14-37&viewport=-2033%2C462%2C0.22&t=5lhV8tieICGvIIT8-1&scaling=contain&content-scaling=responsive",
     alt: "fit-bar-website-design",
     title: "FitBar",
     description:

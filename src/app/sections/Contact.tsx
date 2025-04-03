@@ -32,7 +32,7 @@ export default function Contact() {
               <p className="mb-2">Contact us directly:</p>
               <div className="flex items-center gap-5">
                 <MagneticComponent>
-                  <a href="mailto:contact@vanu.software">
+                  <a href="mailto:contact@vanu.software" target="_blank">
                     <svg
                       className="w-8 cursor-pointer fill-white transition-all duration-200 hover:fill-[url(#linear-gradient-email)] hover:transition-all hover:duration-200 md:w-12"
                       viewBox="0 0 17 12"
@@ -57,7 +57,7 @@ export default function Contact() {
                   </a>
                 </MagneticComponent>
                 <MagneticComponent>
-                  <a href="http://instagram.com">
+                  <a href="http://instagram.com/vanu_software" target="_blank">
                     <svg
                       viewBox="0 0 21 20"
                       fill="none"
