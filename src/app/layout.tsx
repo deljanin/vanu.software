@@ -4,6 +4,7 @@ import { ReactLenis } from "lenis/react";
 import { Metadata } from "next";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const suse = localFont({
   src: "./fonts/SUSEvariableFont.ttf",
@@ -62,6 +63,7 @@ export default function RootLayout({
       <body
         className={`${tilla.variable} ${suse.variable} font-suse antialiased`}
       >
+        <SpeedInsights />
         <ReactLenis root>
           <Navbar />
           {/* <SideMenu /> */}

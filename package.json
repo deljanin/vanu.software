@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.4",
+    "@vercel/speed-insights": "^1.2.0",
     "formik": "^2.4.6",
     "lenis": "^1.1.18",
     "motion": "^12.4.5",
