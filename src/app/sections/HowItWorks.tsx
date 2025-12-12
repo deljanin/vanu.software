@@ -73,7 +73,7 @@ function Phase({ number, heading, text }: PhaseProps) {
       x: "0",
       transition: {
         duration: 0.75,
-        ease: [0.33, 1, 0.68, 1],
+        ease: [0.33, 1, 0.68, 1] as const,
         delay: 0.075 * i,
       },
     }),
@@ -82,7 +82,7 @@ function Phase({ number, heading, text }: PhaseProps) {
       opacity: 1,
       transition: {
         duration: 0.75,
-        ease: [0.33, 1, 0.68, 1],
+        ease: [0.33, 1, 0.68, 1] as const,
         delay: 0.075 * i,
       },
     }),
