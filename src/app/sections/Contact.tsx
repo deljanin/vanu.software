@@ -28,7 +28,7 @@ export default function Contact() {
               <li>Together we discuss your project on a quick call.</li>
               <li>Finally, you get a collaboration offer from Vanu.</li>
             </ol>
-            <div className="mt-5 lg:mt-20">
+            {/* <div className="mt-5 lg:mt-20">
               <p className="mb-2">Contact us directly:</p>
               <div className="flex items-center gap-5">
                 <MagneticComponent>
@@ -69,7 +69,7 @@ export default function Contact() {
                   </a>
                 </MagneticComponent>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <svg
