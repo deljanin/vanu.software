@@ -4,7 +4,7 @@ import { motion, useTime, useTransform } from "motion/react";
 import CTA from "../components/CTA";
 import { useState } from "react";
 import * as yup from "yup";
-import MagneticComponent from "../components/MagneticComponent";
+// import MagneticComponent from "../components/MagneticComponent";
 import Link from "next/link";
 
 export default function Contact() {
