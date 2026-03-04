@@ -73,7 +73,7 @@ export default function Footer() {
       </motion.div>
       <div className="flex w-full flex-wrap gap-10 pt-20 text-lg sm:justify-center xl:justify-between xl:pt-32">
         <div className="w-[300px] md:w-auto">
-          <h3 className="bold mb-3 font-tilla text-2xl">Services</h3>
+          <h3 className="bold font-tilla mb-3 text-2xl">Services</h3>
           <ul>
             <li className="bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text transition-all duration-300 hover:text-transparent">
               <Link href="/#services">Starter Website</Link>
@@ -90,7 +90,7 @@ export default function Footer() {
           </ul>
         </div>
         <div className="w-[300px] md:w-auto">
-          <h3 className="bold mb-3 font-tilla text-2xl">Socials</h3>
+          <h3 className="bold font-tilla mb-3 text-2xl">Socials</h3>
           <ul>
             <li>
               <a
@@ -139,30 +139,21 @@ export default function Footer() {
           </ul>
         </div>
         <div className="w-[300px] md:w-auto">
-          <h3 className="bold mb-3 font-tilla text-2xl">Contact</h3>
-          {/* <ul>
+          <h3 className="bold font-tilla mb-3 text-2xl">Contact</h3>
+          <ul>
             <li>
               <a
                 className="group flex items-center gap-3 bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text transition-all duration-300 hover:text-transparent"
-                href="mailto:contact@vanu.software"
+                href="#contact"
               >
-                <svg
-                  className="cursor-pointer fill-white transition-all duration-200 group-hover:fill-[#CC00CC]"
-                  viewBox="0 0 17 12"
-                  width={23}
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M17.01 10.5V1.5C17.01 0.67 16.34 0 15.51 0H1.5C0.67 0 0 0.67 0 1.5V10.5C0 11.33 0.67 12 1.5 12H15.51C16.34 12 17.01 11.33 17.01 10.5ZM15.7 1.39C16.03 1.72 15.85 2.06 15.67 2.23L11.61 5.95L15.51 10.01C15.63 10.15 15.71 10.37 15.57 10.52C15.44 10.68 15.14 10.67 15.01 10.57L10.64 6.84L8.5 8.79L6.37 6.84L2 10.57C1.87 10.67 1.57 10.68 1.44 10.52C1.3 10.37 1.38 10.15 1.5 10.01L5.4 5.95L1.34 2.23C1.16 2.06 0.98 1.72 1.31 1.39C1.64 1.06 1.98 1.22 2.26 1.46L8.5 6.5L14.75 1.46C15.03 1.22 15.37 1.06 15.7 1.39Z" />
-                </svg>
-                contact@vanu.software
+                Contact form
               </a>
             </li>
             <li></li>
-          </ul> */}
+          </ul>
         </div>
         <div className="w-[300px] md:w-auto">
-          <h3 className="bold mb-3 font-tilla text-2xl">Other</h3>
+          <h3 className="bold font-tilla mb-3 text-2xl">Other</h3>
           <ul>
             <li className="bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text transition-all duration-300 hover:text-transparent">
               <Link href="/privacy-policy">Privacy Policy</Link>

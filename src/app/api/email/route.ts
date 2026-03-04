@@ -1,7 +1,15 @@
 import { NextResponse } from "next/server";
-import sgMail from "@sendgrid/mail";
+import nodemailer from "nodemailer";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || "");
+const transporter = nodemailer.createTransport({
+  host: "smtppro.zoho.eu",
+  port: 587,
+  secure: false,
+  auth: {
+    user: "noreply@mail.vanu.software",
+    pass: process.env.SMTP_PASS,
+  },
+});
 
 export async function POST(request: Request) {
   try {
@@ -16,28 +24,27 @@ export async function POST(request: Request) {
       <h3>Website contact</h3>
       <table style="width: 50%; border-collapse: collapse;">
         <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">Name</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">${name}</td>
+          <td style="border: 1px solid #444; padding: 8px;">Name</td>
+          <td style="border: 1px solid #444; padding: 8px;">${name}</td>
         </tr>
         <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">Email</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">${email}</td>
+          <td style="border: 1px solid #444; padding: 8px;">Email</td>
+          <td style="border: 1px solid #444; padding: 8px;">${email}</td>
         </tr>
         <tr>
-          <td style="border: 1px solid #ddd; padding: 8px;">Message</td>
-          <td style="border: 1px solid #ddd; padding: 8px;">${message}</td>
+          <td style="border: 1px solid #444; padding: 8px;">Message</td>
+          <td style="border: 1px solid #444; padding: 8px;">${message}</td>
         </tr>
       </table>`;
 
-    const msg = {
+    await transporter.sendMail({
       to: "contact@vanu.software",
-      from: "website@vanu.software",
+      from: "noreply@mail.vanu.software",
       subject: "Website form",
       text: `Contact info: name: ${name}; email: ${email}; message: ${message}`,
       html: htmlContent,
-    };
+    });
 
-    await sgMail.send(msg);
     return NextResponse.json({ message: "Email sent" });
   } catch (error) {
     console.error("Error sending email:", error);

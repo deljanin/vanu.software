@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 // List of required environment variables
-const requiredEnvVars = ["SENDGRID_API_KEY"];
+const requiredEnvVars = ["SMTP_PASS"];
 
 // Check for missing environment variables
 requiredEnvVars.forEach((envVar) => {
@@ -13,6 +13,9 @@ requiredEnvVars.forEach((envVar) => {
 });
 
 const nextConfig = {
+  images: {
+    qualities: [100, 75],
+  },
   async rewrites() {
     return [
       {
