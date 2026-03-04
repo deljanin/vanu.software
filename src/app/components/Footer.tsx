@@ -140,7 +140,7 @@ export default function Footer() {
         </div>
         <div className="w-[300px] md:w-auto">
           <h3 className="bold mb-3 font-tilla text-2xl">Contact</h3>
-          <ul>
+          {/* <ul>
             <li>
               <a
                 className="group flex items-center gap-3 bg-gradient-to-r from-[#CC00CC] to-[#BDDFFF] bg-clip-text transition-all duration-300 hover:text-transparent"
@@ -159,7 +159,7 @@ export default function Footer() {
               </a>
             </li>
             <li></li>
-          </ul>
+          </ul> */}
         </div>
         <div className="w-[300px] md:w-auto">
           <h3 className="bold mb-3 font-tilla text-2xl">Other</h3>
